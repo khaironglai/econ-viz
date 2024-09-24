@@ -24,7 +24,7 @@ Benin,128.2611
 Bermuda,1196.963
 Bhutan,20.7531
 Bolivia,11.4588
-Bosnia and Herzegovina,61.8018
+Bosnia and Herz.,61.8018
 Botswana,4.4486
 Brazil,25.3643
 British Virgin Islands,263.14
@@ -48,22 +48,22 @@ Costa Rica,100.4683
 Croatia,69.2517
 Cuba,105.7783
 Curacao,417.7523
-Cyprus,147.0002
-Czech Republic,139.0682
+N. Cyprus,147.0002
+Czechia,139.0682
 DR Congo,48.202
 Denmark,149.4353
 Djibouti,50.4194
 Dominica,88.2733
-Dominican Republic,236.5464
+Dominican Rep.,236.5464
 Ecuador,73.0209
 Egypt,117.0709
 El Salvador,305.8973
-Equatorial Guinea,67.4694
+Eq. Guinea,67.4694
 Eritrea,29.21
 Estonia,31.8256
-Eswatini,72.2571
+eSwatini,72.2571
 Ethiopia,117.015
-Falkland Islands,0.2851
+Falkland Is.,0.2851
 Faroe Islands,40.5564
 Fiji,50.8366
 Finland,18.4816
@@ -190,11 +190,11 @@ Singapore,8123.1017
 Sint Maarten,1275
 Slovakia,112.3026
 Slovenia,105.2173
-Solomon Islands,29.2675
-Somalia,30.3012
+Solomon Is.,29.2675
+Somaliland,30.3012
 South Africa,52.7638
 South Korea,529.8933
-South Sudan,18.8999
+S. Sudan,18.8999
 Spain,95.9061
 Sri Lanka,373.4815
 Sudan,27.0069
@@ -220,8 +220,7 @@ Uganda,249.4269
 Ukraine,65.3438
 United Arab Emirates,155.2679
 United Kingdom,285.7777
-United States Virgin Islands,244.683
-United States,37.7622
+United States of America,37.7622
 Uruguay,19.3497
 Uzbekistan,82.5187
 Vanuatu,26.889
@@ -229,7 +228,7 @@ Vatican City,1127.2727
 Venezuela,32.204
 Vietnam,322.2028
 Wallis and Futuna,41.1569
-Western Sahara,2.2199
+W. Sahara,2.2199
 Yemen,76.8664
 Zambia,28.6726
 Zimbabwe,42.9995
