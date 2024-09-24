@@ -50,7 +50,7 @@
             "field": "Population density (people/km^2)",
             "type": "quantitative",
             "scale": {
-              "type": "linear",
+              "type": "sequential",
               "scheme": "viridis"
             },
             "legend": {
