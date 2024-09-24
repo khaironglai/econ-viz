@@ -48,9 +48,10 @@ Costa Rica,100.4683
 Croatia,69.2517
 Cuba,105.7783
 Curacao,417.7523
-N. Cyprus,147.0002
+Cyprus,147.0002
+N. Cyprus,111.6361
 Czechia,139.0682
-DR Congo,48.202
+Dem. Rep. Congo,48.202
 Denmark,149.4353
 Djibouti,50.4194
 Dominica,88.2733
@@ -68,6 +69,7 @@ Faroe Islands,40.5564
 Fiji,50.8366
 Finland,18.4816
 France,121.5372
+Fr. S. Antarctic Lands,121.5372
 French Guiana,3.6934
 French Polynesia,81.189
 Gabon,9.8535
@@ -99,7 +101,7 @@ Ireland,76.2813
 Isle of Man,147.6491
 Israel,433.781
 Italy,200.6745
-Ivory Coast,100.4221
+Côte d'Ivoire,100.4221
 Jamaica,262.1584
 Japan,339.5145
 Jersey,865.3833
@@ -191,7 +193,8 @@ Sint Maarten,1275
 Slovakia,112.3026
 Slovenia,105.2173
 Solomon Is.,29.2675
-Somaliland,30.3012
+Somaliland,28.27
+Somalia,30.3012
 South Africa,52.7638
 South Korea,529.8933
 S. Sudan,18.8999
@@ -232,3 +235,4 @@ W. Sahara,2.2199
 Yemen,76.8664
 Zambia,28.6726
 Zimbabwe,42.9995
+Kosovo,146
