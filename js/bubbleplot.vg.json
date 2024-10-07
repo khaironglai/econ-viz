@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 550,
+  "data": {
+    "url": "https://raw.githubusercontent.com/LaiKhairong/3179-W10/main/data/Life_expectancy.csv"
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2003,
+        "max": 2023,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "Show All",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Life_expectancy > 0"},
+    {"filter": "datum.Year == Year_selection"},
+    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "GDP_per_capita",
+      "type": "quantitative",
+      "title": "GDP per capita",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "linear", "domain": [1, 100000]}
+    },
+    "y": {
+      "field": "Life_expectancy",
+      "type": "quantitative",
+      "title": "Life expectancy at birth",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "linear", "domain": [50, 90]}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Population",
+          "type": "quantitative",
+          "title": "Population ",
+          "scale": {
+            "type": "threshold",
+            "domain": [500, 400000, 6000000, 30000000, 8000000000],
+            "range": [10, 50, 150, 200, 300, 400]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "title": "Continent",
+          "scale": {
+            "domain": [
+              "North America",
+              "South America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#6cd4c5",
+              "#377eb8",
+              "#6d4b4b"
+            ]
+          }
+        },
+        "opacity": {"value": 0.75},
+        "tooltip": [
+          {"field": "Entity", "type": "nominal", "title": "Country"},
+          {"field": "GDP_per_capita", "type": "quantitative", "title": "GDP per Capita (USD)", "format": ",.2f"},
+          {"field": "Life_expectancy", "type": "quantitative", "title": "Life expectancy at birth", "format": ".2f"},
+          {"field": "Population", "type": "quantitative", "title": "Population (people)", "format": ",.2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {
+          "condition":{
+              "test":"datum['Entity'] == 'China' || datum['Entity'] == 'Malaysia' || datum['Entity'] == 'India' || datum['Entity'] == 'Saudi Arabia' || datum['Entity'] == 'Gabon' || datum['Entity'] == 'Norway' || datum['Entity'] == 'Iceland' ||  datum['Entity'] == 'United States of America'",
+              "field": "Entity", 
+              "type": "nominal"
+          }
+      },
+        "color": {"value": "black"},
+        "tooltip": [
+          {"field": "Entity", "type": "nominal", "title": "Country"},
+          {"field": "GDP_per_capita", "type": "quantitative", "title": "GDP per Capita (USD)", "format": ",.2f"},
+          {"field": "Life_expectancy", "type": "quantitative", "title": "Life expectancy at birth", "format": ".2f"},
+          {"field": "Population", "type": "quantitative", "title": "Population (people)", "format": ",.2f"}
+        ]
+      }
+    }
+  ]
+}
