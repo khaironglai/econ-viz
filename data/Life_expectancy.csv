@@ -1,4 +1,4 @@
-Entity,Year,Period life expectancy at birth - Sex: all - Age: 0,GDP per capita,Population (historical),Continent
+Entity,Year,Life_expectancy,GDP_per_capita,Population,Continent
 Abkhazia,2015,,,,Asia
 Afghanistan,2000,55.2978,502.37274,20130334.0,Asia
 Afghanistan,2001,55.7981,489.682,20284303.0,Asia
