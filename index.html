@@ -1,27 +1,84 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <title>FIT3179-W10 Data Visualisation Project</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
 
 </head>
+
 <body>
+
+  <div class="page">
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Global Population and Socioeconomic Insights</h1>
+        <p>This visualisation shows the global population density in 2024 and 
+            the life expectancy at birth versus the GDP per capita from year 2003 to 2023.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>2024 Global Population Density</h2>
+        <div id="vis1" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Life Expectancy versus GDP per capita (2003-2023)</h2>
+          <div id="vis2" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
   
-<div id="choropleth_map"></div>
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/LaiKhairong/3179-W10" target="_blank">Khairong</a>. The datasource is from 
+            <a href="https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita" 
+            target=" _blank">Life Expectancy vs GDP per capita | Our World in Data</href>.</p>
+      </div>
+    </div>
 
-<script type="text/javascript">
 
-  var spec2 = "js/choropleth_map.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+  </div> <!-- end page -->
 
+  <script type="text/javascript">
+    var specVis1 = "js/choropleth_map.vg.json";
+    var specVis2 = "js/bubbleplot.vg.json";
+
+    vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 </body>
+
 </html>
