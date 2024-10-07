@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "2024 Global Population Density",
-    "width": 800,
-    "height": 500,
+    "width": 950,
+    "height": 600,
     "data": {
         "url": "https://raw.githubusercontent.com/LaiKhairong/3179/main/js/ne_110m.json",
         "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -50,8 +49,9 @@
             "field": "Population density (people/km^2)",
             "type": "quantitative",
             "scale": {
-              "type": "sequential",
-              "scheme": "viridis"
+              "type": "log",
+              "scheme": "inferno",
+              "reverse": true
             },
             "legend": {
                 "orient": "bottom",
