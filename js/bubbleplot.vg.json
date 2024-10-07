@@ -8,11 +8,11 @@
   "params": [
     {
       "name": "Year_selection",
-      "value": 2023,
+      "value": 2021,
       "bind": {
         "input": "range",
-        "min": 2003,
-        "max": 2023,
+        "min": 2000,
+        "max": 2021,
         "step": 1,
         "name": "Year: "
       }
@@ -23,21 +23,21 @@
         "input": "select",
         "options": [
           null,
-          "North America",
-          "South America",
-          "Europe",
           "Africa",
           "Asia",
-          "Oceania"
+          "Europe",
+          "North America",
+          "Oceania",
+          "South America"
         ],
         "labels": [
           "Show All",
-          "North America",
-          "South America",
-          "Europe",
           "Africa",
           "Asia",
-          "Oceania"
+          "Europe",
+          "North America",
+          "Oceania",
+          "South America"
         ],
         "name": "Continent Selection: "
       }
@@ -45,23 +45,24 @@
   ],
   "transform": [
     {"filter": "datum.Life_expectancy > 0"},
+    {"filter": "datum.GDP_per_capita > 0"},
     {"filter": "datum.Year == Year_selection"},
-    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"},
+    {"calculate": "datum.Population / 1000000","as": "Population_in_millions"}
   ],
   "encoding": {
     "x": {
       "field": "GDP_per_capita",
       "type": "quantitative",
       "title": "GDP per capita",
-      "axis": {"tickCount": 7},
-      "scale": {"type": "linear", "domain": [1, 100000]}
+      "scale": {"type": "log", "domain": [400, 160060]}
     },
     "y": {
       "field": "Life_expectancy",
       "type": "quantitative",
       "title": "Life expectancy at birth",
       "axis": {"tickCount": 7},
-      "scale": {"type": "linear", "domain": [50, 90]}
+      "scale": {"type": "linear", "domain": [40, 90]}
     }
   },
   "layer": [
@@ -74,8 +75,8 @@
           "title": "Population ",
           "scale": {
             "type": "threshold",
-            "domain": [500, 400000, 6000000, 30000000, 8000000000],
-            "range": [10, 50, 150, 200, 300, 400]
+            "domain": [500000, 50000000, 500000000],
+            "range": [50, 100, 250, 400]
           },
           "legend": {"format": ".1s"}
         },
@@ -85,29 +86,30 @@
           "title": "Continent",
           "scale": {
             "domain": [
-              "North America",
-              "South America",
-              "Europe",
               "Africa",
               "Asia",
-              "Oceania"
+              "Europe",
+              "North America",
+              "Oceania",
+              "South America"
             ],
             "range": [
-              "#e41a1c",
-              "#984ea3",
-              "#ff7f00",
               "#6cd4c5",
               "#377eb8",
-              "#6d4b4b"
+              "#ff7f00",
+              "#e41a1c",
+              "#6d4b4b",
+              "#984ea3" 
             ]
           }
         },
         "opacity": {"value": 0.75},
         "tooltip": [
           {"field": "Entity", "type": "nominal", "title": "Country"},
-          {"field": "GDP_per_capita", "type": "quantitative", "title": "GDP per Capita (USD)", "format": ",.2f"},
-          {"field": "Life_expectancy", "type": "quantitative", "title": "Life expectancy at birth", "format": ".2f"},
-          {"field": "Population", "type": "quantitative", "title": "Population (people)", "format": ",.2f"}
+          {"field": "Year", "type": "quantitative", "title": "Year"},
+          {"field": "GDP_per_capita", "type": "quantitative", "title": "GDP per capita (international-$)", "format": ",.2f"},
+          {"field": "Life_expectancy", "type": "quantitative", "title": "Life expectancy at birth (years)", "format": ".2f"},
+          {"field": "Population_in_millions", "type": "quantitative", "title": "Population (millions)", "format": ",.2f"}
         ]
       }
     },
@@ -123,7 +125,7 @@
       "encoding": {
         "text": {
           "condition":{
-              "test":"datum['Entity'] == 'China' || datum['Entity'] == 'Malaysia' || datum['Entity'] == 'India' || datum['Entity'] == 'Saudi Arabia' || datum['Entity'] == 'Gabon' || datum['Entity'] == 'Norway' || datum['Entity'] == 'Iceland' ||  datum['Entity'] == 'United States of America'",
+              "test": "datum['Entity'] == 'Chile' || datum['Entity'] == 'Brazil' || datum['Entity'] == 'China' || datum['Entity'] == 'Malaysia' || datum['Entity'] == 'India' || datum['Entity'] == 'Canada' || datum['Entity'] == 'Kenya' || datum['Entity'] == 'Norway' || datum['Entity'] == 'Australia' || datum['Entity'] == 'Russia' || datum['Entity'] == 'Qatar' || datum['Entity'] == 'Central African Republic' || datum['Entity'] == 'Chad' || datum['Entity'] == 'Palestine' || datum['Entity'] == 'Niger' || datum['Entity'] == 'South Africa' || datum['Entity'] == 'United States'",
               "field": "Entity", 
               "type": "nominal"
           }
@@ -131,9 +133,10 @@
         "color": {"value": "black"},
         "tooltip": [
           {"field": "Entity", "type": "nominal", "title": "Country"},
-          {"field": "GDP_per_capita", "type": "quantitative", "title": "GDP per Capita (USD)", "format": ",.2f"},
-          {"field": "Life_expectancy", "type": "quantitative", "title": "Life expectancy at birth", "format": ".2f"},
-          {"field": "Population", "type": "quantitative", "title": "Population (people)", "format": ",.2f"}
+          {"field": "Year", "type": "quantitative", "title": "Year"},
+          {"field": "GDP_per_capita", "type": "quantitative", "title": "GDP per capita (international-$)", "format": ",.2f"},
+          {"field": "Life_expectancy", "type": "quantitative", "title": "Life expectancy at birth (years)", "format": ".2f"},
+          {"field": "Population_in_millions", "type": "quantitative", "title": "Population (millions)", "format": ",.2f"}
         ]
       }
     }
