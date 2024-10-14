@@ -1,0 +1,152 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/LaiKhairong/3179/main/js/ne_110m.json",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_admin_0_countries"
+      }
+    },
+    "projection": {
+      "type": "equalEarth"
+    },
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+          "format": {
+            "type": "topojson",
+            "feature": "oceans"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "#b9d8f6"
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/LaiKhairong/3179/main/js/ne_110m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_110m_graticules_30"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": null,
+          "stroke": "#bdbcbc"
+        }
+      },
+      {
+        "transform": [
+          {
+            "calculate": "'Data is unavailable for ' + datum.properties.NAME",
+            "as": "note"
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "fill": "lightgray",
+          "stroke": "lightgray"
+        },
+        "encoding": {
+          "tooltip": {
+            "field": "note"
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "lookup": "properties.NAME",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/LaiKhairong/3179-A2/main/data/Income_classification.csv"
+              },
+              "key": "Country",
+              "fields": [
+                "Income_classification"
+              ]
+            }
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "stroke": "#e5e5e5"
+        },
+        "encoding": {
+          "color": {
+            "field": "Income_classification",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Low-income ",
+                "Lower-middle-income ",
+                "Upper-middle-income ",
+                "High-income ",
+                "No data"
+              ],
+              "range": [
+                "#daa1dc",
+                "#925195",
+                "#a5ca7f",
+                "#2f8452",
+                "lightgray"
+              ]
+            },
+            "legend": {
+              "orient": "bottom",
+              "labelFontSize": 13,
+              "titleFontSize": 14
+            },
+            "title": "Income Group"
+          },
+          "tooltip": [
+            {
+              "field": "properties.NAME",
+              "type": "nominal",
+              "title": "Country"
+            },
+            {
+              "field": "Income_classification",
+              "type": "nominal",
+              "title": "Income Group"
+            }
+          ]
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/LaiKhairong/3179-A2/main/data/longitude_&_latitude.csv"
+        },
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "baseline": "middle",
+          "color": "black",
+          "fontSize": 11,
+          "fontWeight": "bolder"
+        },
+        "encoding": {
+          "longitude": {
+            "field": "Longitude",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "Latitude",
+            "type": "quantitative"
+          },
+          "text": {
+            "condition": {
+              "test": "datum['Entity'] == 'Canada' || datum['Entity'] == 'Australia' ||  datum['Entity'] == 'United States' ||  datum['Entity'] == 'Greenland' ||  datum['Entity'] == 'Russia'",
+              "field": "Entity",
+              "type": "nominal"
+            }
+          }
+        }
+      }
+    ]
+  }
