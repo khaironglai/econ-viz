@@ -1,44 +1,103 @@
+body {
+    background-color: whitesmoke;
+}
+
 body *{
     font-family: 'Open Sans', sans-serif;
-}
-
-h1 {
-    font-weight: 900;
-}
-
-body {
-    background-color: lightgray;
+    
 }
 
 .page {
-    width: 1000px;
-    background-color: white;
     margin: auto;
-    padding: 50px;
-    padding-top: 35px;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 56px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 25px
+}
+
+p {
+    line-height: 1.5;
+}  
+
+/* .pure-g {
+  display: flex; 
+  flex-wrap: wrap; 
+} */
+
+.pure-u-1-2 {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+.pure-u-1-2:first-child {
+    width: calc(50% - 120px);
+    margin-left: 100px;
+    margin-right: 20px; 
+}
+
+.pure-u-1-2:last-child {
+    width: calc(50% - 120px);
+    margin-left: 20px;
+    margin-right: 100px;  
+}
+
+.margin {
+    width: calc(100% - 200px);
+    margin-left: 100px;
+    margin-right: 100px; 
+}
+
+.small-font {
+    font-size: 12px;
+    padding-top: 20px;
+}
+
+.low-income {
+    color: #daa1dc;
+    font-weight: 900;
+}
+
+.lower-middle-income {
+    color: #925195;
+    font-weight: 900;
+}
+
+.upper-middle-income {
+    color: #a5ca7f;
+    font-weight: 900;
+}
+
+.high-income {
+    color: #2f8452;
+    font-weight: 900;
+}
+
+.higher-values {
+    color: #800026;
+    font-weight: 900;
+}
+
+.bold {
+    font-weight: 600;
 }
 
 .vis-container {
     width: 100%;
-}
-
-.description h2,
-h1 {
-    margin-top: 0px;
-}
-
-.description-right {
-    padding-left: 20px;
-}
-
-.description-left {
-    padding-right: 20px;
-}
-
-.pure-g {
-    margin-bottom: 40px;
-}
-
-.small-font {
-    font-size: 14px;
 }

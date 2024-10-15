@@ -1,0 +1,103 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 600,
+    "background": "whitesmoke",
+    "data": {
+      "url": "https://raw.githubusercontent.com/LaiKhairong/3179-A2/main/data/Human_development_index.csv"
+    },
+    "params": [
+      {
+        "name": "select",
+        "select": {
+          "type": "point",
+          "on": "click"
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": {
+          "field": "Entity",
+          "oneOf": [
+            "Switzerland", "Norway", "Iceland", "Hong Kong", "Denmark", 
+            "Sweden", "Ireland", "Germany", "Singapore", "Netherlands", 
+            "Australia", "Central African Republic", "Niger", "Mali",
+            "Burundi", "Yemen", "Sierra Leone", "Mozambique", "Afghanistan"
+            ,"Malaysia"
+          ]
+        }
+      }
+    ],
+    "mark": {"type": "rect"},
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "timeUnit": "year",
+        "title": "Year",
+        "axis": {
+          "labelFontSize": 13,
+          "titleFontSize": 14
+        }
+      },
+      "y": {
+        "field": "Entity",
+        "type": "nominal",
+        "title": null,
+        "axis": {
+          "labelFontSize": 13,
+          "orient": "right"
+        }
+      },
+      "color": {
+        "field": "Human Development Index",
+        "type": "quantitative",
+        "scale": {
+          "type": "threshold",
+          "domain": [0.4, 0.6, 0.8],
+          "range": ["#abd9e9", "#74add1", "#4575b4", "#313695"]
+        },
+        "legend": {
+          "orient": "top",
+          "labelFontSize": 13,
+          "titleFontSize": 14
+        },
+        "title": ["Human Development Index"]
+      },
+      "tooltip": [
+        {
+          "field": "Entity",
+          "type": "nominal",
+          "title": "Country"
+        },
+        {
+          "field": "Year",
+          "type": "ordinal",
+          "timeUnit": "year",
+          "title": "Year"
+        },
+        {
+          "field": "Human Development Index",
+          "type": "quantitative",
+          "title": "Human Development Index",
+          "format": ".2f"
+        }
+      ],
+      "stroke": {
+        "condition": {
+          "param": "select",
+          "value": "black"
+        },
+        "value": null
+      },
+      "fillOpacity": {
+        "condition": {
+          "param": "select",
+          "value": 1
+        },
+        "value": 0.5
+      }
+    }
+  }
+  

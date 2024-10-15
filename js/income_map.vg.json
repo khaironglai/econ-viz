@@ -125,7 +125,7 @@
           "type": "text",
           "align": "center",
           "baseline": "middle",
-          "color": "black",
+          "color": "white",
           "fontSize": 11,
           "fontWeight": "bolder"
         },

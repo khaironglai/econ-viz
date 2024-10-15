@@ -111,7 +111,7 @@
             "labelFontSize": 13,
             "titleFontSize": 14
           },
-          "title": "Gini Index"
+          "title": "Gini Index (%)"
         },
         "tooltip": [
           {
@@ -122,7 +122,7 @@
           {
             "field": "Gini",
             "type": "quantitative",
-            "title": "Gini Index",
+            "title": "Gini Index (%)",
             "format": ".2f"
           }
         ]

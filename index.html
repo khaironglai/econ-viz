@@ -1,90 +1,160 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>FIT3179 Data Visualisation 2</title>
 
-<head>
-  <title>FIT3179-W10 Data Visualisation Project</title>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- Import pure.css -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Meta tag for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-</head>
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  </head>
 
-<body>
-
-  <div class="page">
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1>Global Population and Socioeconomic Insights</h1>
-        <p>This visualisation shows the global population density in 2024 and 
-            the life expectancy at birth versus the GDP per capita from year 2000 to 2021.</p>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h2>2024 Global Population Density</h2>
-        <p>This choropleth map visualizes the population density across different countries in 2024. 
-          Darker shades represent areas with higher population density, highlighting the concentration of people in certain regions such as Asia and Europe. 
-          This visualization helps in understanding how population is distributed globally, which can impact resource allocation, urban planning, and environmental policies.</p>
-        <div id="vis1" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- pure grid group -->
-    <div class="pure-g">
+  <body>
+    <div class="page">
+      <!-- pure grid group -->
+      <div class="pure-g">
         <div class="pure-u-1-1">
-          <h2>Life Expectancy versus GDP per capita (2000-2021)</h2>
-          <p>This bubble plot displays the relationship between life expectancy at birth and GDP per capita over the years 2000 to 2021 for various countries. 
-            Each bubble represents a country, with the size of the bubble indicating the population size. 
-            The visualization reveals the correlation between wealth (GDP per capita) and life expectancy, showing that countries with higher GDP often tend to have longer life expectancies.</p>
+          <h1>Global Economics</h1>
+          <h2>Exploring the Income Indicators of the World</h2>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <h3>Wealth Diversity: A Global Income Group Map</h3>
+          <p>
+            For the 2025 fiscal year, countries are classified into four income groups based on their <a href="https://en.wikipedia.org/wiki/Gross_national_income" target="_blank">Gross National Income</a> (GNI) per capita, calculated using the 
+            <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/77933-what-is-the-world-bank-atlas-method#:~:text=The%20Atlas%20method%20smooths%20exchange,see%20the%20detailed%20methodology%20page." target="_blank">World Bank Atlas method</a>. 
+            <span class="low-income">Low-income economies</span> have a GNI per capita of <span class = "bold">$1,145</span> or less, while 
+            <span class="lower-middle-income">lower middle-income economies</span> fall between <span class = "bold">$1,146</span> and <span class = "bold">$4,515</span>. 
+            <span class="upper-middle-income">Upper middle-income economies</span> are those with a GNI per capita between <span class = "bold">$4,516</span> and <span class = "bold">$14,005</span>, and 
+            <span class="high-income">high-income economies</span> are classified as having a GNI per capita exceeding <span class = "bold">$14,005</span>.
+          </p>
+          <div id="vis1" class="vis-container"></div>
+        </div>
+
+        <div class="pure-u-1-2">
+          <h3>Economic Disparity: A Gini Coefficient Map</h3>
+          <p>
+            The <a href="https://en.wikipedia.org/wiki/Gini_coefficient" target="_blank">Gini coefficient</a> is a widely used measure of inequality, named after Italian statistician 
+            <a href="https://en.wikipedia.org/wiki/Corrado_Gini" target="_blank">Corrado Gini</a>.
+            The Gini coefficient ranges from 0 to 1, with <span class="higher-values">higher values</span> indicating <span class="higher-values">greater inequality</span>. 
+            This measure is sometimes expressed as a percentage from 0 to 100%, referred to as the “<span class = "bold">Gini Index</span>.” 
+            A Gini value of <span class = "bold">0</span> represents <span class = "bold">perfect equality</span>, where everyone has the same income, while a value of <span class = "bold">1</span> signifies <span class = "bold">perfect inequality</span>, where one individual receives all income and others receive none.
+          </p>
           <div id="vis2" class="vis-container"></div>
         </div>
       </div>
       <!-- end pure grid group -->
-  
-    <div class="pure-g">
-      <div class="pure-u-1-1 small-font">
-        <p>This visualisation is created by <a href="https://github.com/LaiKhairong/3179-W10" target="_blank">Khairong</a>. The datasource is from 
-            <a href="https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita" 
-            target=" _blank">Life Expectancy vs GDP per capita | Our World in Data</href>.</p>
+      
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <h3>Income Insights: A Income Median Heatmap</h3>
+          <p>
+            <a href="https://en.wikipedia.org/wiki/Median_income" target="_blank">Median income</a>
+            is a key metric for understanding a nation’s income distribution. 
+            It represents the income level that divides the population into two equal groups: 
+            half of the population earns more than the median, and the other half earns less. 
+            This makes it a better reflection of the <span class = "bold">typical income</span> compared to the average, or mean, 
+            which can be skewed by extremely high or low values.
+            The data used is measured in <span class = "bold">international dollars</span> at <span class = "bold">2017 prices</span>, adjusting for <span class = "bold">inflation</span> and 
+            <span class = "bold">cost of living</span> differences between countries, which ensures a more consistent comparison of income levels globally.
+          </p>
+          <div id="vis3" class="vis-container"></div>
+        </div>
+
+        <div class="pure-u-1-2">
+          <h3>Global Well-Being: A Human Development Index Heatmap</h3>
+          <p>
+            The <a href="https://en.wikipedia.org/wiki/Human_Development_Index" target="_blank">Human Development Index</a> (HDI)
+            is a widely recognized measure of human development that reflects the <span class = "bold">well-being</span> of individuals. 
+            It is based on three dimensions: <span class = "bold">a long and healthy life</span>, measured by <span class = "bold">life expectancy at birth</span>; <span class = "bold">knowledge</span>, 
+            assessed through <span class = "bold">expected years of schooling for children</span> and <span class = "bold">average years of schooling for adults</span>; and a <span class = "bold">decent standard of living</span>, 
+            determined by <span class = "bold">Gross National Income (GNI) per capita</span>. These dimensions are normalized and aggregated to create a score ranging from 0 to 1, 
+            enabling the classification of countries based on their development levels.
+          </p>
+          <div id="vis4" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-1 margin">
+          <h3>Prosperity & Longevity: A GDP & Life Expectancy Scatter Plot</h3>
+          <p>
+            <a href="https://en.wikipedia.org/wiki/Gross_domestic_product" target="_blank">Gross Domestic Product</a> (GDP) per capita is a key economic indicator that measures the <span class = "bold">average economic output per person</span>, 
+            reflecting the <span class = "bold">standard of living in a country</span>. <a href="https://en.wikipedia.org/wiki/Life_expectancy" target="_blank">Life expectancy</a> at birth, meanwhile, is a crucial metric indicating the 
+            <span class = "bold">average number of years a newborn is expected to live</span>, serving as a <span class = "bold">vital sign of public health and quality of life</span>. 
+            Generally, there is a <span class = "bold">positive correlation</span> between <span class = "bold">GDP per capita</span> and <span class = "bold">life expectancy</span>, as higher income levels often lead to 
+            improved healthcare access, better nutrition, and overall enhanced living conditions.
+          </p>
+          <div id="vis5" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+
+      <div class="pure-g">
+        <div class="pure-u-1-1 small-font margin">
+          <p>
+            This visualization is created by <a href="https://github.com/LaiKhairong/3179-A2" target="_blank">Khairong</a> on 13/10/2024.<br>
+            Data sources:<br>
+            1. World Bank (2024): <a href="https://ourworldindata.org/grapher/world-bank-income-groups?tab=table#explore-the-data" target="_blank">World Bank Income Groups</a>;<br>
+            2. World Bank Poverty and Inequality Platform (2024): <a href="https://ourworldindata.org/what-is-the-gini-coefficient" target="_blank">Gini Coefficient</a>;<br>
+            3. World Bank Poverty and Inequality Platform (2024), World Inequality Database (WID.world) (2024), Luxembourg Income Study (2024): <a href="https://ourworldindata.org/explorers/incomes-across-distribution-comparison?tab=table&country=CHL~BRA~ZAF~USA~FRA~CHN~AZE~AUT&Indicator=Mean+income+or+consumption&Income+measure=After+tax&Period=Year" target="_blank">Income Across Distribution Comparison</a>;<br>
+            4. UNDP, Human Development Report (2024): <a href="https://ourworldindata.org/human-development-index" target="_blank">Human Development Index</a>;<br>
+            5. UN WPP (2022), HMD (2023), Zijdeman et al. (2015), Riley (2005), Bolt and van Zanden - Maddison Project Database 2023: <a href="https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita?tab=table" target="_blank">Life Expectancy vs. GDP per Capita</a>.
+        </p>
+        
+        </div>
       </div>
     </div>
+    <!-- end page -->
 
+    <script type="text/javascript">
+      var specVis1 = "js/income_map.vg.json";
+      var specVis2 = "js/gini_map.vg.json";
+      var specVis3 = "js/median_income.vg.json";
+      var specVis4 = "js/heatmap.vg.json";
+      var specVis5 = "js/bubbleplot.vg.json";
+      
+      vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+      
+      vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
 
-  </div> <!-- end page -->
+      vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
 
-  <script type="text/javascript">
-    var specVis1 = "js/choropleth_map.vg.json";
-    var specVis2 = "js/bubbleplot.vg.json";
+      vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
 
-    vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-
-    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
-</body>
-
+      vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </body>
 </html>
