@@ -140,7 +140,7 @@
           },
           "text": {
             "condition": {
-              "test": "datum['Entity'] == 'Canada' || datum['Entity'] == 'Australia' ||  datum['Entity'] == 'United States' ||  datum['Entity'] == 'Greenland' ||  datum['Entity'] == 'Russia'",
+              "test": "datum['Entity'] == 'Canada' || datum['Entity'] == 'Australia' ||  datum['Entity'] == 'United States' ||  datum['Entity'] == 'Greenland' ||  datum['Entity'] == 'Russia' ||  datum['Entity'] == 'Saudi Arabia'",
               "field": "Entity",
               "type": "nominal"
             }

@@ -151,7 +151,7 @@
         },
         "text": {
           "condition": {
-            "test": "datum['Entity'] == 'South Africa' || datum['Entity'] == 'Namibia' || datum['Entity'] == 'Zambia' || datum['Entity'] == 'Brazil'",
+            "test": "datum['Entity'] == 'South Africa' || datum['Entity'] == 'Namibia' || datum['Entity'] == 'Zambia' || datum['Entity'] == 'Brazil' || datum['Entity'] == 'Colombia'",
             "field": "Entity",
             "type": "nominal"
           }
