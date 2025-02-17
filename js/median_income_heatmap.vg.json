@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 600,
+  "background": "whitesmoke",
+  "data": {
+    "url": "https://raw.githubusercontent.com/khaironglai/econ-viz/main/data/median_income.csv"
+  },
+  "params": [
+    {
+      "name": "select",
+      "select": {
+        "type": "point",
+        "on": "click"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": {
+        "field": "Country",
+        "oneOf": [
+          "Switzerland", "Norway", "Iceland", "Hong Kong", "Denmark",
+          "Sweden", "Ireland", "Germany", "Singapore", "Netherlands",
+          "Australia", "Central African Republic", "Niger", "Mali",
+          "Burundi", "Yemen", "Sierra Leone", "Mozambique", "Afghanistan",
+          "Malaysia"
+        ]
+      }
+    }
+  ],
+  "mark": {
+    "type": "rect"
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "timeUnit": "year",
+      "title": "Year",
+      "axis": {
+        "labelFontSize": 13,
+        "titleFontSize": 14
+      }
+    },
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelFontSize": 13,
+        "orient": "right"
+      }
+    },
+    "color": {
+      "field": "Median income (WID data)",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [50, 100, 150, 200],
+        "range": [
+          "#a1d99b",
+          "#74c476",
+          "#41ab5d",
+          "#238b45",
+          "#005a32"
+        ]
+      },
+      "legend": {
+        "orient": "top",
+        "labelFontSize": 13,
+        "titleFontSize": 14
+      },
+      "title": "Median Income (Int$)"
+    },
+    "tooltip": [
+      {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Country"
+      },
+      {
+        "field": "Year",
+        "type": "ordinal",
+        "timeUnit": "year",
+        "title": "Year"
+      },
+      {
+        "field": "Median income (WID data)",
+        "type": "quantitative",
+        "title": "Median Income (Int$)",
+        "format": ".2f"
+      }
+    ],
+    "stroke": {
+      "condition": {
+        "param": "select",
+        "value": "black"
+      },
+      "value": null
+    },
+    "fillOpacity": {
+      "condition": {
+        "param": "select",
+        "value": 1
+      },
+      "value": 0.5
+    }
+  }
+}

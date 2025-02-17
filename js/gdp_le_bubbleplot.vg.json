@@ -4,7 +4,7 @@
   "height": 600,
   "background": "whitesmoke",
   "data": {
-    "url": "https://raw.githubusercontent.com/LaiKhairong/3179-W10/main/data/Life_expectancy.csv"
+    "url": "https://raw.githubusercontent.com/khaironglai/econ-viz/main/data/le.csv"
   },
   "params": [
     {
